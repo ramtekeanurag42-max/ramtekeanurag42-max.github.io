@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>🍽️ EatSafe — Know What You Eat</title>
+  <meta name="description" content="EatSafe — Know what you eat. Search products, view food-safety notes, and send feedback (sign in with Google)." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍽️</text></svg>">
+
+  <!-- styles -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Identity SDK (required for Sign-In button) -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+  <!-- Welcome / Login Screen -->
+  <main id="welcome" class="page-center">
+    <div class="card welcome-card">
+      <h1>🍽️ EatSafe</h1>
+      <p class="lead">Know what you eat — sign in to continue to EatSafe</p>
+
+      <div id="gSignInDiv" aria-live="polite"></div>
+
+      <div class="or">or</div>
+      <button id="continueLocal" class="btn ghost">Continue without sign-in (demo)</button>
+
+      <p class="small muted">You can sign in with Google to save feedback online.<br>
+      (When ready, paste your Google Client ID & Firebase config into <code>script.js</code>.)</p>
+    </div>
+  </main>
+
+  <!-- Main App (hidden until sign-in or demo) -->
+  <div id="app" class="app-root hidden">
+    <header>
+      <div class="header-left">
+        <h1>🍽️ EatSafe</h1>
+        <p class="subtitle">Know What You Eat</p>
+      </div>
+      <div class="header-right">
+        <div id="userInfo" class="user" style="display:none">
+          <img id="userPic" src="" alt="avatar" />
+          <div class="meta">
+            <div id="userName"></div>
+            <div id="userEmail"></div>
+          </div>
+        </div>
+        <button id="signOutBtn" class="btn small" style="display:none">Sign out</button>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="search-row">
+        <input id="manualInput" placeholder="Type product name e.g., Maggi" autocomplete="off" />
+        <button id="searchBtn" class="btn">Search</button>
+      </div>
+      <div id="suggestions" class="suggestions"></div>
+
+      <div id="result" class="result-area"></div>
+
+      <div id="feedbackWrap" class="feedback hidden">
+        <h3>Send feedback about EatSafe</h3>
+        <textarea id="feedbackText" placeholder="Tell us what you think..."></textarea>
+        <div class="row">
+          <button id="sendFeedbackBtn" class="btn">Send Feedback</button>
+          <div id="feedbackMsg" class="feedback-msg"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button class="close" title="Close">&times;</button>
+      <div id="modalText"></div>
+    </div>
+  </div>
+
+  <!-- App script (module) -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
