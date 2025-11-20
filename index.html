@@ -1,125 +1,85 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>EatSafe</title>
+<title>EatSafe — Know What You Eat</title>
+<link rel="stylesheet" href="style.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-<style>
-  body {
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    background: #f4f7f9;
-    color: #1c2833;
-  }
-
-  /* HERO SECTION */
-  .hero {
-    text-align: center;
-    padding: 80px 20px;
-    background: linear-gradient(135deg, #58d68d, #2e86c1);
-    color: white;
-    border-radius: 0 0 35px 35px;
-  }
-  .hero h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
-  }
-  .hero p {
-    font-size: 18px;
-    opacity: 0.9;
-  }
-  .cta-btn {
-    margin-top: 20px;
-    background: white;
-    color: #2e86c1;
-    padding: 14px 30px;
-    font-size: 18px;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  .cta-btn:hover {
-    background: #e6e6e6;
-  }
-
-  /* CARD SECTION */
-  .section-title {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 28px;
-    font-weight: 600;
-  }
-
-  .container {
-    width: 90%;
-    max-width: 900px;
-    margin: auto;
-    margin-top: 20px;
-  }
-
-  .card {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 15px;
-    margin: 15px 0;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-  }
-  .card:hover {
-    transform: scale(1.02);
-  }
-  .card h3 {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 22px;
-    margin-bottom: 10px;
-  }
-
-  /* FOOTER */
-  footer {
-    text-align: center;
-    margin-top: 40px;
-    padding: 20px;
-    background: #2e86c1;
-    color: white;
-  }
-</style>
 </head>
+
 <body>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <h1><i class="fa-solid fa-shield-halved"></i> EatSafe</h1>
-    <p>Your trusted guide for food safety and healthy living.</p>
-    <button class="cta-btn">Explore Tips</button>
-  </section>
+<!-- HERO SECTION -->
+<section class="hero">
+  <h1><i class="fa-solid fa-shield-halved"></i> EatSafe</h1>
+  <p>Your trusted food safety assistant.</p>
+  <button id="openLogin" class="cta-btn">Login / Demo</button>
+</section>
 
-  <!-- CARDS SECTION -->
-  <h2 class="section-title">Food Safety Tips</h2>
+<!-- LOGIN SCREEN -->
+<div id="loginScreen" class="login-screen" style="display:none;">
+    <div class="login-box">
+        <button id="closeLogin" class="close-btn">&times;</button>
+        <h1>🍽️ EatSafe</h1>
+        <p>Know what you eat — make healthy choices!</p>
 
-  <div class="container">
-    <div class="card">
-      <h3><i class="fa-solid fa-hand-sparkles"></i> Wash Hands</h3>
-      <p>Always wash your hands for 20 seconds before cooking food.</p>
+        <button id="googleLoginBtn" class="google-btn">Sign in with Google</button>
+
+        <div class="divider">or</div>
+
+        <button id="demoBtn" class="demo-btn">Continue Without Login (Demo)</button>
+    </div>
+</div>
+
+<!-- MAIN CONTAINER -->
+<div class="container">
+
+    <!-- USER INFO -->
+    <div id="userBox" class="userBox" style="display:none;">
+        <img id="userPic" />
+        <div>
+            <div id="userName"></div>
+            <div id="userEmail"></div>
+        </div>
+        <button id="signOutBtn" class="signout-btn">Sign Out</button>
     </div>
 
+    <!-- SEARCH -->
     <div class="card">
-      <h3><i class="fa-solid fa-temperature-high"></i> Check Temperature</h3>
-      <p>Make sure food is cooked at the right temperature to kill bacteria.</p>
+      <h3><i class="fa-solid fa-magnifying-glass"></i> Search Product</h3>
+      <div class="search-box">
+          <input id="manualInput" placeholder="Search product e.g. Maggi" autocomplete="off" />
+          <button id="searchBtn">Search</button>
+      </div>
+      <div id="suggestions" class="suggestions-box"></div>
     </div>
 
-    <div class="card">
-      <h3><i class="fa-solid fa-apple-whole"></i> Clean Fresh Produce</h3>
-      <p>Wash fruits and vegetables properly to remove chemicals and dirt.</p>
-    </div>
-  </div>
+    <!-- RESULTS -->
+    <div id="result"></div>
 
-  <footer>
-    <p>© 2025 EatSafe • Stay Healthy, Stay Safe</p>
-  </footer>
+    <!-- FEEDBACK CARD -->
+    <div id="feedbackWrap" class="card" style="display:none;">
+        <h3><i class="fa-solid fa-comment"></i> Send Feedback</h3>
+        <textarea id="feedbackText" placeholder="Write your feedback..."></textarea>
+        <button id="sendFeedbackBtn" class="cta-btn">Send Feedback</button>
+        <div id="feedbackMsg"></div>
+    </div>
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <button id="closeModal" class="close-btn">&times;</button>
+        <p id="modalText"></p>
+    </div>
+</div>
+
+<!-- GOOGLE SDK -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+
+<!-- MAIN SCRIPT -->
+<script type="module" src="script.js"></script>
 
 </body>
 </html>
