@@ -81,6 +81,18 @@ const feedbackWrap = document.getElementById("feedbackWrap");
 const feedbackText = document.getElementById("feedbackText");
 const sendFeedbackBtn = document.getElementById("sendFeedbackBtn");
 const feedbackMsg = document.getElementById("feedbackMsg");
+// Feedback Button — Show Feedback Box
+const feedbackBtn = document.getElementById("feedbackBtn");
+
+if (feedbackBtn) {
+    feedbackBtn.addEventListener("click", () => {
+        feedbackWrap.style.display = "block";  // show feedback box
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: "smooth"
+        });
+    });
+}
 
 /* ===================== Utilities ===================== */
 function parseJwt(token){
