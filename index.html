@@ -1,36 +1,45 @@
-    <!DOCTYPE html>
+           <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>EatSafe — Know What You Eat</title>
 <link rel="stylesheet" href="style.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 
 <body>
 
-<!-- HERO SECTION -->
-<section class="hero">
-  <h1><i class="fa-solid fa-shield-halved"></i> EatSafe</h1>
-  <p>Your trusted food safety assistant.</p>
-  <button id="openLogin" class="cta-btn">Login / Demo</button>
-</section>
-
 <!-- LOGIN SCREEN -->
-<div id="loginScreen" class="login-screen" style="display:none;">
+<div id="loginScreen" class="login-screen">
     <div class="login-box">
-        <button id="closeLogin" class="close-btn">&times;</button>
-        <h1>🍽️ EatSafe</h1>
-        <p>Know what you eat — make healthy choices!</p>
 
-        <button id="googleLoginBtn" class="google-btn">Sign in with Google</button>
+        <!-- Close Button -->
+        <button id="closeLogin" class="close-btn">&times;</button>
+
+        <h1 style="margin-bottom: 5px;">🍽️ EatSafe</h1>
+        <p style="margin-bottom: 20px;">Know what you eat — make healthy choices!</p>
+
+        <!-- Google Login Button -->
+        <button id="googleLoginBtn" class="google-btn">
+            Sign in with Google
+        </button>
 
         <div class="divider">or</div>
 
-        <button id="demoBtn" class="demo-btn">Continue Without Login (Demo)</button>
+        <!-- Guest Mode -->
+        <button id="demoBtn" class="demo-btn">
+            Continue Without Login (Demo)
+        </button>
     </div>
 </div>
+
+<!-- HEADER -->
+<header>
+    <h1>🍽️ EatSafe</h1>
+    <p>Your personal food safety assistant</p>
+</header>
+<button id="feedbackBtn" class="<button id="feedbackBtn" class="feedback-btn">Feedback</button>
+
 
 <!-- MAIN CONTAINER -->
 <div class="container">
@@ -46,23 +55,22 @@
     </div>
 
     <!-- SEARCH -->
-    <div class="card">
-      <h3><i class="fa-solid fa-magnifying-glass"></i> Search Product</h3>
-      <div class="search-box">
-          <input id="manualInput" placeholder="Search product e.g. Maggi" autocomplete="off" />
-          <button id="searchBtn">Search</button>
-      </div>
-      <div id="suggestions" class="suggestions-box"></div>
+    <div class="search-box">
+        <input id="manualInput" placeholder="Search product e.g. Maggi" autocomplete="off" />
+        <button id="searchBtn">Search</button>
     </div>
+
+    <!-- Suggestions -->
+    <div id="suggestions" class="suggestions-box"></div>
 
     <!-- RESULTS -->
     <div id="result"></div>
 
-    <!-- FEEDBACK CARD -->
-    <div id="feedbackWrap" class="card" style="display:none;">
-        <h3><i class="fa-solid fa-comment"></i> Send Feedback</h3>
+    <!-- FEEDBACK -->
+    <div id="feedbackWrap" class="feedback" style="display:none;">
+        <h3>Send Feedback</h3>
         <textarea id="feedbackText" placeholder="Write your feedback..."></textarea>
-        <button id="sendFeedbackBtn" class="cta-btn">Send Feedback</button>
+        <button id="sendFeedbackBtn">Send Feedback</button>
         <div id="feedbackMsg"></div>
     </div>
 </div>
@@ -82,4 +90,4 @@
 <script type="module" src="script.js"></script>
 
 </body>
-</html>
+    </html> 
